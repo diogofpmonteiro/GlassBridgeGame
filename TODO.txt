@@ -1,0 +1,11 @@
+-- TODO : 
+    - numOfLives feature
+    - paneBreak feature (delete glass panes that you already passed, with sound and animation - at the end)
+    - gameover feature 
+    - movePlayer method - IMPORTANT
+    - full bridge spawning - IMPORTANT
+
+
+- In progress but broken: 
+    - movePlayer method (make player go to whatever pane you select with arrow keys, maybe animations as well? (falling - scream sound?) - at the end)
+    - full bridge spawning (needs work on the loop. only first iteration works)

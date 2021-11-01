@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Glass Bridge Game</title>
+  </head>
+  <body>
+    <!-- WELCOME SCREEN -->
+    <div id="welcome-screen" class="container">
+      <h1>Welcome to the playground!</h1>
+      <button id="start-btn">Start!</button>
+    </div>
+
+    <!-- TIP SCREEN -->
+    <div id="tips-box" class="container">
+      <h2>Choose your path wisely</h2>
+      <h3></h3>
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div class="container">
+      <canvas id="game-canvas" width="600" height="800"></canvas>
+    </div>
+
+    <!-- GAME OVER SCREEN -->
+    <div id="gameover-screen" class="container">
+      <h2>You chose the wrong path.</h2>
+      <button id="restart-btn">Play Again?</button>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/game.js"></script>
+    <script src="./scripts/player.js"></script>
+    <script src="./scripts/bridge.js"></script>
+  </body>
+</html>
