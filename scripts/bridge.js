@@ -1,5 +1,4 @@
 class GlassPane {
-  //properties
   constructor(xPos, yPos) {
     //Glass pane image or Rect square
     this.image = new Image();
@@ -11,8 +10,7 @@ class GlassPane {
     this.fakePane = false;
   }
 
-  //methods
   drawPane = () => {
     paintbrush.drawImage(this.image, this.x, this.y, this.width, this.height);
-  }; // * done
+  };
 }

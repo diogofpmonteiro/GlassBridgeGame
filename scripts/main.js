@@ -1,31 +1,33 @@
-// * GLOBAL VARIABLES and QUERY SELECTORS
-//canvas
 let canvas = document.querySelector("#game-canvas");
-//paintbrush
 let paintbrush = canvas.getContext("2d");
-//other dom elements
 let splashScreen = document.querySelector("#welcome-screen");
 let gameoverScreen = document.querySelector("#gameover-screen");
 let startBtn = document.querySelector("#start-btn");
 let restartBtn = document.querySelector("#restart-btn");
-//game object variables
 let scoreText = document.querySelector("#score");
+let backgroundMusic;
 let game;
 
-// * FUNCTIONS
+const playMusic = () => {
+  backgroundMusic = new Audio("../sounds/pinksoldiers.mp3");
+  backgroundMusic.loop = true;
+  backgroundMusic.volume = 0.1;
+  backgroundMusic.play();
+};
+
 const startGame = () => {
   splashScreen.style.display = "none";
   canvas.style.display = "flex";
   scoreh2.style.display = "flex";
   game = new Game();
   document.addEventListener("keydown", game.movePlayer);
+  playMusic();
   game.gameLoop();
-}; // * done
+};
 
 const restartGame = () => {
   document.location.reload();
-}; // * done
+};
 
-// * ADD EVENT LISTENERS
 startBtn.addEventListener("click", startGame);
 restartBtn.addEventListener("click", restartGame);

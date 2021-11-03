@@ -1,16 +1,10 @@
 -- TODO : 
-    - level 2 (- delete glass panes that you already passed - by arr.pop()) )
     - add sound and animation to paneBreak
     - add sound and animations to movePlayer
 
 - In progress but not ready: 
-    - 
+    - level 2 (- delete glass panes that you already passed - with arr.pop()) )
+    - highest score feature
 
 - DONE: 
-    - full bridge spawning
-    - movePlayer method ( move player to chosen pane )
-    - fakePane feature (guarantees one of the next two panes is "fake")
-    - numOfLives feature
-    - gameover feature and try again
-    - hearts images representing number of lives
-    - score feature
+    - added background music

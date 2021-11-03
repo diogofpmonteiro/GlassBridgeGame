@@ -1,5 +1,4 @@
 class Game {
-  //properties
   constructor() {
     this.player = new Player();
     this.vertSpaceBetweenPanes = 150;
@@ -21,11 +20,10 @@ class Game {
     this.score = 0;
   }
 
-  //methods
   drawPlatform = () => {
     paintbrush.fillStyle = "red";
     paintbrush.fillRect(265, 700, 80, 120);
-  }; // * done
+  };
 
   spawnInitialPanes = () => {
     while (this.paneCounter < 6) {
@@ -36,13 +34,13 @@ class Game {
       this.paneArr.push([newPaneLeft, newPaneRight]);
       this.panesYLocations.push(this.newYLocation);
     }
-  }; // * done
+  };
 
   livesText = () => {
     paintbrush.fillStyle = "#bb0a1e";
     paintbrush.font = "25px Fruktur";
     paintbrush.fillText("Lives: ", 50, 50);
-  }; // * done
+  };
 
   movePlayer = (event) => {
     this.stepCounter++;
@@ -94,7 +92,7 @@ class Game {
       paintbrush.clearRect(265, 700, 80, 120);
       // ? don't know if this will work
     }
-  }; // TODO - spawn new panes or re-do the game loop without restarting score - "level 2 feature" - last feature to implement (less important)
+  }; // TODO - spawn new panes or re-do the game loop without restarting score - "level 2 feature"
 
   gameover = () => {
     this.isGameOver = true;
@@ -104,15 +102,12 @@ class Game {
   }; // TODO - add delay? also animations and sounds
 
   gameLoop = () => {
-    // console.log("it works"); // -> testing purposes
     // * 1. CLEAR THE CANVAS
     paintbrush.clearRect(0, 0, canvas.width, canvas.height);
 
     // * 2. MOVEMENT AND CHANGES ON ELEMENTS
     this.spawnInitialPanes();
-
-    // ? function that updates number of lives
-    // ? function that updates score
+    scoreText.innerText = this.score;
 
     // * 3. DRAWING THE ELEMENTS
     this.drawPlatform();
@@ -123,7 +118,6 @@ class Game {
     this.livesText();
     this.heartsArr.forEach((heart) => heart.drawHearts());
 
-    scoreText.innerText = this.score;
     // * 4. REQUEST ANIMATION FRAME AND GAME LOGIC CHANGES
     if (!this.isGameOver) {
       requestAnimationFrame(this.gameLoop);
