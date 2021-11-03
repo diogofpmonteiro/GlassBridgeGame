@@ -17,8 +17,7 @@ class Game {
     this.panesYLocations = [];
     this.stepCounter = -1;
     this.isGameOver = false;
-    this.hearts = new Hearts();
-    this.numOfLives = 2;
+    this.heartsArr = [new Hearts(125), new Hearts(155)];
     this.score = 0;
   }
 
@@ -39,10 +38,11 @@ class Game {
     }
   }; // * done
 
-  updateLives = () => {
-    paintbrush.font = "25px Arial";
-    paintbrush.fillText("Lives: " + this.numOfLives, 50, 50);
-  }; // TODO - update hearts to same number of lives
+  livesText = () => {
+    paintbrush.fillStyle = "#bb0a1e";
+    paintbrush.font = "25px Fruktur";
+    paintbrush.fillText("Lives: ", 50, 50);
+  }; // * done
 
   movePlayer = (event) => {
     this.stepCounter++;
@@ -58,13 +58,13 @@ class Game {
           leftPane.fakePane = true;
         }
         if (leftPane.fakePane) {
-          this.numOfLives--;
+          this.heartsArr.pop();
+        } else {
+          this.score++;
         }
-        if (this.numOfLives === 0) {
+        if (this.heartsArr.length === 0) {
           this.gameover();
         }
-        console.log("lives", this.numOfLives);
-        console.log("score", this.score);
         break;
       case "ArrowRight":
         const rightPane = this.paneArr[this.stepCounter][1];
@@ -76,20 +76,16 @@ class Game {
           rightPane.fakePane = true;
         }
         if (rightPane.fakePane) {
-          this.numOfLives--;
+          this.heartsArr.pop();
+        } else {
+          this.score++;
         }
-        if (this.numOfLives === 0) {
+        if (this.heartsArr.length === 0) {
           this.gameover();
         }
-        console.log("lives", this.numOfLives);
-        console.log("score", this.score);
         break;
     }
-  }; // TODO - animations
-
-  updateScore = () => {
-    initialScore.innerText = this.score;
-  };
+  }; // TODO - animations and sounds
 
   spawnNewPanes = () => {
     // lvl 2
@@ -98,13 +94,14 @@ class Game {
       paintbrush.clearRect(265, 700, 80, 120);
       // ? don't know if this will work
     }
-  }; // TODO - spawn new panes or re-do the game loop without restarting score
+  }; // TODO - spawn new panes or re-do the game loop without restarting score - "level 2 feature" - last feature to implement (less important)
 
   gameover = () => {
     this.isGameOver = true;
     canvas.style.display = "none";
+    scoreh2.style.display = "none";
     gameoverScreen.style.display = "flex";
-  }; // TODO - add delay? animations still missing
+  }; // TODO - add delay? also animations and sounds
 
   gameLoop = () => {
     // console.log("it works"); // -> testing purposes
@@ -113,6 +110,7 @@ class Game {
 
     // * 2. MOVEMENT AND CHANGES ON ELEMENTS
     this.spawnInitialPanes();
+
     // ? function that updates number of lives
     // ? function that updates score
 
@@ -122,9 +120,10 @@ class Game {
       panePair.forEach((pane) => pane.drawPane());
     });
     this.player.drawPlayer();
-    this.updateLives();
-    this.hearts.drawHearts();
+    this.livesText();
+    this.heartsArr.forEach((heart) => heart.drawHearts());
 
+    scoreText.innerText = this.score;
     // * 4. REQUEST ANIMATION FRAME AND GAME LOGIC CHANGES
     if (!this.isGameOver) {
       requestAnimationFrame(this.gameLoop);

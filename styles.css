@@ -1,18 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Fruktur&display=swap");
+
+* {
+  font-family: "Fruktur", cursive;
+  font-size: 40px;
+  color: #bb0a1e;
+}
+
 #game-canvas {
   background-color: black;
+  display: none;
 }
 
 #start-btn,
 #restart-btn {
-  background-color: black;
+  background-color: #bb0a1e;
   color: white;
   padding: 20px;
   font-size: 20px;
   margin: 20px 0px;
-}
-
-#start-btn {
-  margin-top: 0px;
 }
 
 .container {
@@ -22,11 +27,31 @@
   align-items: center;
 }
 
-/* hidden at the beginning */
 #gameover-screen {
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#welcome-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 #tips-box {
   display: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+#scoreh2 {
+  display: none;
+  margin: 0;
 }

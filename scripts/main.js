@@ -9,12 +9,14 @@ let gameoverScreen = document.querySelector("#gameover-screen");
 let startBtn = document.querySelector("#start-btn");
 let restartBtn = document.querySelector("#restart-btn");
 //game object variables
+let scoreText = document.querySelector("#score");
 let game;
-let initialScore = document.querySelector("#initialScore");
 
 // * FUNCTIONS
 const startGame = () => {
   splashScreen.style.display = "none";
+  canvas.style.display = "flex";
+  scoreh2.style.display = "flex";
   game = new Game();
   document.addEventListener("keydown", game.movePlayer);
   game.gameLoop();
