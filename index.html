@@ -11,23 +11,19 @@
     <!-- WELCOME SCREEN -->
     <div id="welcome-screen" class="container">
       <h1>Welcome to the playground!</h1>
-      <button id="start-btn">Start!</button>
-    </div>
-
-    <!-- TIP SCREEN -->
-    <div id="tips-box" class="container">
       <h2>Choose your path wisely</h2>
-      <h3></h3>
+      <button id="start-btn">Start!</button>
     </div>
 
     <!-- GAME SCREEN -->
     <div class="container">
+      <h2 id="initialScore">Score: <span> 0</span></h2>
       <canvas id="game-canvas" width="600" height="800"></canvas>
     </div>
 
     <!-- GAME OVER SCREEN -->
     <div id="gameover-screen" class="container">
-      <h2>You chose the wrong path.</h2>
+      <h2>You chose the wrong path too many times.</h2>
       <button id="restart-btn">Play Again?</button>
     </div>
 
@@ -36,5 +32,6 @@
     <script src="./scripts/game.js"></script>
     <script src="./scripts/player.js"></script>
     <script src="./scripts/bridge.js"></script>
+    <script src="./scripts/hearts.js"></script>
   </body>
 </html>

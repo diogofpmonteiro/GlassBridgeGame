@@ -10,16 +10,20 @@ let startBtn = document.querySelector("#start-btn");
 let restartBtn = document.querySelector("#restart-btn");
 //game object variables
 let game;
-// add a function that after a certain amount of panes gives you an extra life
-let numOfLives = 0; // TODO
+let initialScore = document.querySelector("#initialScore");
 
 // * FUNCTIONS
 const startGame = () => {
   splashScreen.style.display = "none";
   game = new Game();
+  document.addEventListener("keydown", game.movePlayer);
   game.gameLoop();
-};
+}; // * done
+
+const restartGame = () => {
+  document.location.reload();
+}; // * done
 
 // * ADD EVENT LISTENERS
 startBtn.addEventListener("click", startGame);
-// window.addEventListener("keydown", movePlayer);
+restartBtn.addEventListener("click", restartGame);

@@ -8,13 +8,11 @@ class GlassPane {
     this.height = 100;
     this.x = xPos;
     this.y = yPos;
-    this.truePane = true;
+    this.fakePane = false;
   }
 
   //methods
   drawPane = () => {
     paintbrush.drawImage(this.image, this.x, this.y, this.width, this.height);
   }; // * done
-
-  paneBreak = () => {}; // TODO
 }
