@@ -1,8 +1,7 @@
 class Hearts {
   constructor(xPos) {
     this.heartImage = new Image();
-    this.heartImage.src = "../images/heart.png";
-    this.emptyHeartImage = "../images/heartborder.png";
+    this.heartImage.src = "./images/heart.png";
     this.width = 25;
     this.height = 25;
     this.xHeartPos = xPos;
