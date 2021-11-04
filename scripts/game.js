@@ -47,7 +47,6 @@ class Game {
     let valueRandomizer = Math.random();
     switch (event.code) {
       case "ArrowLeft":
-        playJumpSound();
         const leftPane = this.paneArr[this.stepCounter][0];
         let leftXCenter = leftPane.x + 25;
         let leftYCenter = leftPane.y + 10;
@@ -58,8 +57,10 @@ class Game {
         }
         if (leftPane.fakePane) {
           this.heartsArr.pop();
+          playGlassBreak();
         } else {
           this.score++;
+          playJumpSound();
         }
         if (this.heartsArr.length === 0) {
           this.gameover();
@@ -70,7 +71,6 @@ class Game {
         }
         break;
       case "ArrowRight":
-        playJumpSound();
         const rightPane = this.paneArr[this.stepCounter][1];
         let rightXCenter = rightPane.x + 25;
         let rightYCenter = rightPane.y + 10;
@@ -81,8 +81,10 @@ class Game {
         }
         if (rightPane.fakePane) {
           this.heartsArr.pop();
+          playGlassBreak();
         } else {
           this.score++;
+          playJumpSound();
         }
         if (this.heartsArr.length === 0) {
           this.gameover();
@@ -103,15 +105,6 @@ class Game {
     winningScreen.style.display = "flex";
     backgroundMusic.pause();
   };
-
-  spawnNewPanes = () => {
-    // lvl 2
-    // when counter > 8 hide the starting platform and add a new set of panes, delete sets of panes that are left behind
-    if (this.paneCounter >= 9) {
-      paintbrush.clearRect(265, 700, 80, 120);
-      // ? don't know if this will work
-    }
-  }; // TODO - spawn new panes or re-do the game loop without restarting score - "level 2 feature"
 
   gameover = () => {
     this.isGameOver = true;
@@ -145,3 +138,5 @@ class Game {
     }
   };
 }
+
+// TODO - level 2 feature

@@ -9,6 +9,7 @@ let playAgainBtn = document.querySelector("#play-again-btn");
 let scoreText = document.querySelector("#score");
 let backgroundMusic;
 let gameoverMusic;
+let glassBreakSound;
 let jumpSound;
 let winningSound;
 let game;
@@ -18,6 +19,13 @@ const playBackgroundMusic = () => {
   backgroundMusic.loop = true;
   backgroundMusic.volume = 0.1;
   backgroundMusic.play();
+};
+
+const playGlassBreak = () => {
+  glassBreakSound = new Audio("./sounds/glassbreak.wav");
+  glassBreakSound.loop = false;
+  glassBreakSound.volume = 0.2;
+  glassBreakSound.play();
 };
 
 const playGameoverMusic = () => {

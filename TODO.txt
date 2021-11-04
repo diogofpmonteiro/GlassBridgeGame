@@ -1,19 +1,14 @@
 -- TODO : 
-    - add sound and animation to paneBreak
-    - add sound and animations to movePlayer
+    - add animation to paneBreak
+    - add animations to movePlayer
+    - delay some animations 
     
-
 - In progress but not ready: 
-    - Score function is done BUT will not be implemented until new levels are.
     - new level
     - highest score feature
 
 - DONE: 
-    - added background music
-    - added jump sound
-    - added gameover sound
-    - added winning sound
-
+    - Score function is done BUT will not be implemented until new levels are.
 
 BUGS THAT NEED FIXING: 
 
