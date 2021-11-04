@@ -14,27 +14,27 @@ let winningSound;
 let game;
 
 const playBackgroundMusic = () => {
-  backgroundMusic = new Audio("../sounds/pinksoldiers.mp3");
+  backgroundMusic = new Audio("./sounds/pinksoldiers.mp3");
   backgroundMusic.loop = true;
   backgroundMusic.volume = 0.1;
   backgroundMusic.play();
 };
 
 const playGameoverMusic = () => {
-  gameoverMusic = new Audio("../sounds/gameover.wav");
+  gameoverMusic = new Audio("./sounds/gameover.wav");
   gameoverMusic.loop = false;
   gameoverMusic.volume = 0.2;
 };
 
 const playJumpSound = () => {
-  jumpSound = new Audio("../sounds/jump.wav");
+  jumpSound = new Audio("./sounds/jump.wav");
   jumpSound.loop = false;
   jumpSound.volume = 0.2;
   jumpSound.play();
 };
 
 const playWinningSound = () => {
-  winningSound = new Audio("../sounds/winningcheer.wav");
+  winningSound = new Audio("./sounds/winningcheer.wav");
   winningSound.loop = false;
   winningSound.volume = 0.2;
   winningSound.play();
