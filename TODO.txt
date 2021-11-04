@@ -1,10 +1,21 @@
 -- TODO : 
     - add sound and animation to paneBreak
     - add sound and animations to movePlayer
+    
 
 - In progress but not ready: 
-    - level 2 (- delete glass panes that you already passed - with arr.pop()) )
+    - Score function is done BUT will not be implemented until new levels are.
+    - new level
     - highest score feature
 
 - DONE: 
     - added background music
+    - added jump sound
+    - added gameover sound
+    - added winning sound
+
+
+BUGS THAT NEED FIXING: 
+
+when you press another button before jumping, it registers and will jump over a row
+when you press multiple buttons it will crash the jumping function

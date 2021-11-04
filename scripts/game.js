@@ -47,6 +47,7 @@ class Game {
     let valueRandomizer = Math.random();
     switch (event.code) {
       case "ArrowLeft":
+        playJumpSound();
         const leftPane = this.paneArr[this.stepCounter][0];
         let leftXCenter = leftPane.x + 25;
         let leftYCenter = leftPane.y + 10;
@@ -63,8 +64,13 @@ class Game {
         if (this.heartsArr.length === 0) {
           this.gameover();
         }
+        console.log(this.stepCounter);
+        if (this.stepCounter === 3 && this.heartsArr.length >= 1) {
+          this.winning();
+        }
         break;
       case "ArrowRight":
+        playJumpSound();
         const rightPane = this.paneArr[this.stepCounter][1];
         let rightXCenter = rightPane.x + 25;
         let rightYCenter = rightPane.y + 10;
@@ -81,9 +87,22 @@ class Game {
         if (this.heartsArr.length === 0) {
           this.gameover();
         }
+        console.log(this.stepCounter);
+        if (this.stepCounter === 3 && this.heartsArr.length >= 1) {
+          this.winning();
+        }
         break;
     }
-  }; // TODO - animations and sounds
+  }; // TODO - add animations
+
+  winning = () => {
+    playWinningSound();
+    this.isGameOver = true;
+    canvas.style.display = "none";
+    scoreh2.style.display = "none";
+    winningScreen.style.display = "flex";
+    backgroundMusic.pause();
+  };
 
   spawnNewPanes = () => {
     // lvl 2
@@ -99,7 +118,9 @@ class Game {
     canvas.style.display = "none";
     scoreh2.style.display = "none";
     gameoverScreen.style.display = "flex";
-  }; // TODO - add delay? also animations and sounds
+    backgroundMusic.pause();
+    gameoverMusic.play();
+  }; // TODO - add animations
 
   gameLoop = () => {
     // * 1. CLEAR THE CANVAS
