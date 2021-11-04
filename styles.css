@@ -15,7 +15,7 @@ body {
 #game-canvas {
   background-color: black;
   display: none;
-  margin: 35px 0;
+  height: 100vh;
 }
 
 #start-btn,
